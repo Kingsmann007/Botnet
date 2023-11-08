@@ -9,5 +9,11 @@ def start():
             final_url.replace(" ", "")
             if requests.get(final_url).status_code == 200:
                 page = urllib.request.urlopen(final_url)
-                print(page.read())
+                lst = []
+                for i in page.read():
+                    lst.append(chr(i))
+                j = F
+                for i in lst:
+                    if i!="ö":
+                        
 start()
