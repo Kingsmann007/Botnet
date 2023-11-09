@@ -12,8 +12,15 @@ def start():
                 lst = []
                 for i in page.read():
                     lst.append(chr(i))
-                j = F
+                j = False
+                str = ""
                 for i in lst:
-                    if i!="ö":
-                        
+                    if i=="ö":
+                        if j:
+                            j=False
+                        else:
+                            j=True
+                    elif j:
+                        str+=i
+                print(str)
 start()
