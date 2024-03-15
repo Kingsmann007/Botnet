@@ -20,8 +20,7 @@ while True:
     #ruft die aktuelle zeit ab
     current_time = time.localtime()
     hours = current_time.tm_hour
-    minutes = current_time.tm_min
-    seconds = current_time.tm_sec
     #1x am tag wird start abgerufen
-    if hours == 0 and minutes == 0 and seconds == 0:
+    if hours == 22:
         start()
+    time.sleep(3600)
